@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.geekbrains.lesson1"/>
+
+    <bean id="patient" class="com.geekbrains.lesson1.Patient" scope="prototype"></bean>
+    <bean id="therapist" class="com.geekbrains.lesson1.Therapist" scope="prototype"></bean>
+
+    <bean id="registry" class="com.geekbrains.lesson1.Registry" scope="singleton">
+        <property name="patient">
+            <ref bean="patient"/>
+        </property>
+        <property name="therapist">
+            <ref bean="therapist"/>
+        </property>
+
+    </bean>
+
+</beans>
